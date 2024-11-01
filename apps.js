@@ -40,30 +40,42 @@ formulaire.addEventListener('submit', function(event){
 
     const td5 = document.createElement('td');
     tr.appendChild(td5);
-    
+
+    // creation de span pour le button modifier 
     const span1 = document.createElement('span');
     td5.appendChild(span1);
     const btnmodif = document.createElement('button');
     span1.appendChild(btnmodif);
     btnmodif.innerHTML = "Modifier";
 
+// creation de span pour le button supprimer 
     const span2 = document.createElement('span');
     td5.appendChild(span2);
     const btnsupp = document.createElement('button');
     span1.appendChild(btnsupp);
     btnsupp.innerHTML = "Supprimer";
+
 //    suppression d'un ligne par click
     btnsupp.addEventListener('click', function (){
         tbody.removeChild(tr)
     })
     
-    // modification 
+    // reafficher les valeur dans le formulaire 
     btnmodif.addEventListener('click', function (){
         ajouter.style.display = 'none';
         modifier.style.display = 'block';
-        
-    })
 
+        // recuperation des donnes pour le boutton modifier
+        const prenomModif = td1;
+        const nomModif = td2;
+        const emailModif = td3;
+        const telephoneModif = td4;
+      console.log(prenomModif , nomModif, emailModif, telephoneModif);
+
+    //   Reaffichage des donnees sur la formulaire
+      
+    })
+ 
     // retour au boutton ajouter apres la click sur modifier
     modifier.addEventListener('click', function(){
         ajouter.style.display = 'block';
