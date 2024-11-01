@@ -66,22 +66,37 @@ formulaire.addEventListener('submit', function(event){
         modifier.style.display = 'block';
 
         // recuperation des donnes pour le boutton modifier
-        const prenomModif = td1;
-        const nomModif = td2;
-        const emailModif = td3;
-        const telephoneModif = td4;
-      console.log(prenomModif , nomModif, emailModif, telephoneModif);
-
-    //   Reaffichage des donnees sur la formulaire
-      
-    })
+        const recuperationTr = tr;
+        const recuperationTd1 = recuperationTr.children[0].textContent;
+        const recuperationTd2 = recuperationTr.children[1].textContent;
+        const recuperationTd3 = recuperationTr.children[2].textContent;
+        const recuperationTd4 = recuperationTr.children[3].textContent;
+    
+        // console.log(recuperationTr)
+        // console.log(recuperationTd1 ,recuperationTd2 , recuperationTd3 , recuperationTd4 )
  
-    // retour au boutton ajouter apres la click sur modifier
-    modifier.addEventListener('click', function(){
+        // recuperation des champs de saisie
+          const input = document.getElementsByTagName('input');
+
+        //   Reaffichage des donnees sur la formulaire
+          input[0].value = recuperationTd1;
+          input[1].value = recuperationTd2;
+          input[2].value = recuperationTd3;
+          input[3].value = recuperationTd4;
+
+           // remplacer les anciennes donnes par les donnes modifier 
+    formulaire.addEventListener('submit', function(e){
+        e.preventDefault();
+        // recuperation des donnes modifier
+       
+
         ajouter.style.display = 'block';
         modifier.style.display = 'none';
     })
 
+    })
+ 
+   
 
 // changement de couleur de fond pour les button
   btnsupp.style.backgroundColor = 'red';
