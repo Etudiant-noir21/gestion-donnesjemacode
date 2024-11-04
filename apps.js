@@ -60,6 +60,8 @@ formulaire.addEventListener('submit', function(event){
         tbody.removeChild(tr)
     })
     
+   
+
     // reafficher les valeur dans le formulaire 
     btnmodif.addEventListener('click', function (){
         ajouter.style.display = 'none';
@@ -84,28 +86,48 @@ formulaire.addEventListener('submit', function(event){
           input[2].value = recuperationTd3;
           input[3].value = recuperationTd4;
 
-           // remplacer les anciennes donnes par les donnes modifier 
-    formulaire.addEventListener('submit', function(e){
+       // remplacer les anciennes donnes par les donnes modifier 
+        formulaire.addEventListener('submit', function(e){
         e.preventDefault();
-        // recuperation des donnes modifier
-       
+        // Creation d'un nouveau ligne
+       const newTr = document.createElement('tr')
+       tbody.appendChild(newTr)
+    //    creation de nouveau colonne
+    const newTd1 = document.createElement('td')
+    newTr.appendChild(newTd1)
+    const newTd2 = document.createElement('td')
+    newTr.appendChild(newTd2)
+    const newTd3 = document.createElement('td')
+    newTr.appendChild(newTd3)
+    const newTd4 = document.createElement('td')
+    newTr.appendChild(newTd4)
+    const newTd5 = document.createElement('td')
+    newTr.appendChild(newTd5)
+
+       console.log(newTr)
+       newTr.children[0].textContent = input[0].value;
+       newTr.children[1].textContent = input[1].value;
+       newTr.children[2].textContent = input[2].value;
+       newTr.children[3].textContent = input[3].value;
+    
+    //    remplacer l'ancienne ligne par la nouvelle ligne
+    //    newTr.textContent = recuperationTr
+    tbody.removeChild(recuperationTr);
+
 
         ajouter.style.display = 'block';
         modifier.style.display = 'none';
     })
-
     })
- 
+    
    
 
 // changement de couleur de fond pour les button
   btnsupp.style.backgroundColor = 'red';
   btnmodif.style.backgroundColor = 'yellow';
   
-
 //     on vide le formulaire
     formulaire.reset();
-
 
 })
 
